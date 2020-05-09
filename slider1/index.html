@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>js slider</title>
+    <meta name='viewport' content='width=device-width,initial-scale=1' />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+        integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <!-- bootstrap  --
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+            -->
+    <!-- css -->
+    <link rel="stylesheet" href="css/style.css" />
+
+</head>
+
+<body>
+    <div class="slider">
+        <div class="slide slide1 slide-active">
+            <h2>Enterprise Software Development</h2>
+            <p>Custom software development for enterprises</p>
+            <button>Read more</button>
+        </div>
+        <div class="slide slide2 slide-hide">
+            <h2>Enterprise Software Development</h2>
+            <p>Custom software development for enterprises</p>
+            <button>Read more</button>
+        </div>
+        <div class="slide slide3 slide-hide">
+            <h2>Enterprise Software Development</h2>
+            <p>Custom software development for enterprises</p>
+            <button>Read More</button>
+        </div>
+
+        <div class="slide-icons">
+            <a href=""><i class="fas fa-chevron-left left"></i></a>
+            <a href=""><i class="fas fa-chevron-right right"></i></a>
+        </div>
+
+        <div class="slide-icons2">
+            <i class="fas fa-circle icon1"></i>
+            <i class="fas fa-circle icon2"></i>
+            <i class="fas fa-circle icon3"></i>
+        </div>
+    </div>
+
+    <script>
+        let slider = document.querySelector(".slider");
+        let toLeft = document.querySelector(".left");
+        let toRight = document.querySelector(".right");
+        let allSliders = document.querySelectorAll(".slide");
+        let selectedSlderIndex = 1;
+
+
+        // /*------------ */
+        let slideFirst = document.querySelector(".slide1");
+        let slideSecond = document.querySelector(".slide2");
+        let slideThird = document.querySelector(".slide3");
+
+        let iconFirst = document.querySelector(".icon1");
+        let iconSecond = document.querySelector(".icon2");
+        let iconThird = document.querySelector(".icon3");
+
+        let iconsList = document.getElementsByClassName("fa-circle");
+
+        for (let icon of iconsList) {
+            icon.addEventListener("click", (data) => {
+                let clickedIconClassName = data.currentTarget.classList[2]
+                let selectedSlideIndex = clickedIconClassName[clickedIconClassName.length - 1]
+
+                let currentSlide = document.querySelector(".slide-active");
+                currentSlide.classList.add("slide-hide");
+                currentSlide.classList.remove("slide-active");
+                allSliders[selectedSlideIndex - 1].classList.remove('slide-hide');
+                allSliders[selectedSlideIndex - 1].classList.add('slide-active');
+            });
+        }
+
+        // toRight.addEventListener("click", function (event) {
+        //     event.preventDefault();
+        //     let currentSlide = document.querySelector(".slide-active");
+
+        //     ++selectedSlderIndex;
+        //     if (selectedSlderIndex > allSliders.length) selectedSlderIndex = 1;
+        //     currentSlide.classList.add("slide-hide");
+        //     currentSlide.classList.remove("slide-active");
+        //     allSliders[selectedSlderIndex - 1].classList.remove('slide-hide');
+        //     allSliders[selectedSlderIndex - 1].classList.add('slide-active');
+
+        // })
+
+            // toLeft.addEventListener("click", function(e){
+            //     e.preventDefault();
+            //     let currentSlide = document.querySelector(".slide-active");
+
+            //     --selectedSlderIndex;
+            //     if(selectedSlderIndex < 1) selectedSlderIndex = allSliders.length;
+            //     currentSlide.classList.add("slide-hide");
+            //     currentSlide.classList.remove("slide-active");
+            //     allSliders[selectedSlderIndex - 1].classList.remove('slide-hide');
+            //     allSliders[selectedSlderIndex - 1].classList.add('slide-active');
+            // })
+
+
+
+            // iconFirst.addEventListener("click", function(event){
+            //     event.preventDefault();
+            //     let currentSlide = document.querySelector(".slide-active");
+            //     currentSlide.classList.add("slide-hide");
+            //     currentSlide.classList.remove("slide-active");
+
+            //     slideFirst.classList.remove("slide-hide");
+            //     slideFirst.classList.add("slide-active");
+            //     //console.log("bsabc");
+            // })
+
+            // iconSecond.addEventListener("click", function(event){
+            //     event.preventDefault();
+            //     let currentSlide = document.querySelector(".slide-active");
+            //     currentSlide.classList.add("slide-hide");
+            //     currentSlide.classList.remove("slide-active");
+
+            //     slideSecond.classList.remove("slide-hide");
+            //     slideSecond.classList.add("slide-active");
+            //     //console.log("bsabc");
+            // })
+
+            // iconThird.addEventListener("click", function(event){
+            //     event.preventDefault();
+            //     let currentSlide = document.querySelector(".slide-active");
+            //     currentSlide.classList.add("slide-hide");
+            //     currentSlide.classList.remove("slide-active");
+
+            //     slideThird.classList.remove("slide-hide");
+            //     slideThird.classList.add("slide-active");
+            //     //console.log("bsabc");
+            // })
+
+
+    </script>
+</body>
+
+</html>
